@@ -1,0 +1,3 @@
+smtp._domainkey	IN	TXT	( "v=DKIM1; h=rsa-sha256; k=rsa; s=email; "
+	  "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyYxo+CZl+I6wOd7OK7dxWHaOrHmeRqG+RZT/TfzodUHhOyi7+d/SjQ/9mQeEkaacgFHSo4PBr0GIPlaD9UDn8LswY3ec46ytvZ8maKrvA1WmINPDbDSIO96GxSMFUQxMm1omdBUHBHcREJSRN5E9KP+eO8LNQYrJuQkw0+WSIjpWvTzSPz5NwB61QsM2aXN9BxoblvigDkzPW7"
+	  "s9s7bVM/T8V84o59VaRiDaakjK31FBBKncsq1Eq4dnpzVRGT2rN0jEdrYZMAHRohyGfl7eolZbxkd7X7uZChZA8bEutH1t97NWVAOJ7CC8oxEviruBc0Y6ZkSnrje1nwK68zWYJwIDAQAB" )  ; ----- DKIM key smtp for paulmrx.ovh
