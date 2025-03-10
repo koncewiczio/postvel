@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('status');
             $table->json('replacements');
+            $table->json('headers')->nullable();
             $table->text('debug')->nullable();
             $table->string('postfix_id')
                 ->unique()

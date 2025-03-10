@@ -65,7 +65,9 @@ class Send implements ShouldQueue, ShouldBeUniqueUntilProcessing
                 ->subject($this->subject($recipient))
                 ->html($this->body($recipient));
 
+            $this->headers($recipient, $email);
             $email = $signer->sign($email);
+
 
             try {
                 $sentMessage = $transport->send($email);
@@ -112,6 +114,17 @@ class Send implements ShouldQueue, ShouldBeUniqueUntilProcessing
         }
 
         return $body;
+    }
+
+    protected function headers(Recipient $recipient, Email $email): void
+    {
+        if (!$recipient->headers) {
+            return;
+        }
+
+        foreach ($recipient->headers as $header) {
+            $email->getHeaders()->addTextHeader($header['key'], $header['value']);
+        }
     }
 
     protected function subject(Recipient $recipient)

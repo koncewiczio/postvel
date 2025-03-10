@@ -66,6 +66,9 @@ SQL;
             'recipients.*.replacements' => ['array', 'max:10'],
             'recipients.*.replacements.*.search' => ['required', 'string'],
             'recipients.*.replacements.*.replace' => ['present', 'nullable'],
+            'recipients.*.headers' => ['array', 'max:10'],
+            'recipients.*.headers.*.key' => ['required', 'string'],
+            'recipients.*.headers.*.value' => ['required', 'string'],
         ]);
 
         if ($validator->fails()) {
@@ -82,6 +85,7 @@ SQL;
                 'email' => $recipient['email'],
                 'status' => 'created',
                 'replacements' => json_encode($recipient['replacements'] ?? []),
+                'headers' => json_encode($recipient['headers'] ?? []),
                 'created_at' => $time,
                 'updated_at' => $time
             ];

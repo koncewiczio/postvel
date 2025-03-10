@@ -24,7 +24,7 @@ class MessageController extends Controller
             'from_email' => ['required', 'email', 'max:200'],
             'subject' => ['required', 'string', 'max:200'],
             'replay_to' => ['required', 'email', 'max:200'],
-            'body' => ['required', 'string', 'max:1000000'] // ~1MB
+            'body' => ['required', 'string', 'max:1000000'], // ~1MB
         ]);
 
         if ($validator->fails()) {
