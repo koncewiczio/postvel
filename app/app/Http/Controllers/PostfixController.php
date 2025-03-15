@@ -26,7 +26,7 @@ class PostfixController extends Controller
         }
 
         $existingRecipients = Recipient::whereIn('postfix_id', collect($request->all())->pluck('id'))
-            ->get(['postfix_id', 'message_id', 'batch_id', 'email', 'replacements'])
+            ->get(['postfix_id', 'message_id', 'batch_id', 'email', 'replacements', 'headers'])
             ->keyBy('postfix_id');
 
         $data = [];
@@ -45,6 +45,7 @@ class PostfixController extends Controller
                 'email' => $existingRecipients[$item['id']]->email,
                 'status' => $item['status'] === 'sent' ? 'delivered' : 'failed',
                 'replacements' => json_encode($existingRecipients[$item['id']]->replacements),
+                'headers' => json_encode($existingRecipients[$item['id']]->headers),
                 'updated_at' => $time
             ];
         }

@@ -18,6 +18,7 @@ class Recipient extends Model
     {
         return [
             'replacements' => 'array',
+            'headers' => 'array',
             'created_at' => 'datetime:Y-m-d H:i:s.u',
             'updated_at' => 'datetime:Y-m-d H:i:s.u'
         ];
